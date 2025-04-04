@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stefan's XP Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Desktop Icon -->
+<div class="desktop-icon" onclick="openWindow('about-me-window')">
+    <img src="assets/icons/24.ico" alt="About Me" />
+    <span>About Me</span>
+</div>
+
+<!-- Window -->
+<div id="about-me-window" class="window hidden">
+    <div class="window-titlebar">
+        <span>About Me</span>
+        <div class="window-controls">
+            <button onclick="minimizeWindow('about-me-window')">_</button>
+            <button onclick="closeWindow('about-me-window')">×</button>
+        </div>
+    </div>
+
+    <!-- Explorer Toolbar -->
+    <div class="explorer-toolbar">
+        <button class="toolbar-btn">←</button>
+        <button class="toolbar-btn">→</button>
+        <input class="address-bar" value="C:/Users/Stefan/About Me" readonly />
+    </div>
+
+    <div class="explorer-body">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h4>Tasks</h4>
+            <ul>
+                <li onclick="loadTask('profile')">View Profile</li>
+                <li onclick="loadTask('resume')">Open Resume</li>
+                <li onclick="loadTask('projects')">Projects</li>
+                <li onclick="loadTask('contact')">Contact Info</li>
+                <li onclick="loadTask('more')">More About Me</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="file-item">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
+                <span>Name: Stefan Popovski</span>
+            </div>
+            <div class="file-item">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
+                <span>Major: Mechanical Engineering</span>
+            </div>
+            <div class="file-item">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
+                <span>Minor: Nuclear Engineering</span>
+            </div>
+            <div class="file-item">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
+                <span>Interests: Nuclear, Oil & Gas, Offshore</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Taskbar -->
+<div id="taskbar">
+    <button onclick="toggleWindow('about-me-window')">About Me</button>
+</div>
+
+<div id="system-widget">
+    <p id="widget-ip">IP: Loading...</p>
+    <p id="widget-location">Location: Loading...</p>
+    <p id="widget-time">Time: Loading...</p>
+</div>
+
+
+</body>
+</html>
