@@ -20,8 +20,9 @@
     <div class="window-titlebar">
         <span>About Me</span>
         <div class="window-controls">
-            <button onclick="minimizeWindow('about-me-window')">_</button>
-            <button onclick="closeWindow('about-me-window')">×</button>
+            <button class = "btn-min" onclick="minimizeWindow('about-me-window')">_</button>
+            <button class = "btn-max" onclick="maximizeWindow('about-me-window')">☐</button>
+            <button class = "btn-cls" onclick="closeWindow('about-me-window')">×</button>
         </div>
     </div>
 
@@ -42,14 +43,19 @@
                 <li onclick="loadTask('projects')">Projects</li>
                 <li onclick="loadTask('contact')">Contact Info</li>
                 <li onclick="loadTask('more')">More About Me</li>
+                <li onclick="loadTask('photo')">Photography</li>
             </ul>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
             <div class="file-item">
-                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
+               <!-- <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" -->
                 <span>Name: Stefan Popovski</span>
+            </div>
+            <div class="file-item">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
+                <span>Education: University of Maryland, College Park</span>
             </div>
             <div class="file-item">
                 <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/48/folder-blue-icon.png" />
@@ -79,6 +85,10 @@
     <p id="widget-time">Time: Loading...</p>
 </div>
 
+<!-- Lightbox (global) -->
+<div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Photo" />
+</div>
 
 </body>
 </html>

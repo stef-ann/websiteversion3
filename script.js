@@ -95,3 +95,51 @@ function loadTask(taskName) {
             contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
         });
 }
+
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = imgElement.src;
+    lightbox.classList.remove("hidden");
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").classList.add("hidden");
+}
+
+function openLightbox(imgElement) {
+    console.log("Opening lightbox for", imgElement.src);
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = imgElement.src;
+    lightbox.classList.remove("hidden");
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").classList.add("hidden");
+}
+
+function maximizeWindow(id) {
+    const win = document.getElementById(id);
+    if (win.classList.contains('maximized')) {
+        // Restore original size
+        win.style.top = win.dataset.prevTop;
+        win.style.left = win.dataset.prevLeft;
+        win.style.width = win.dataset.prevWidth;
+        win.style.height = win.dataset.prevHeight;
+        win.classList.remove('maximized');
+    } else {
+        // Save current position & size
+        win.dataset.prevTop = win.style.top;
+        win.dataset.prevLeft = win.style.left;
+        win.dataset.prevWidth = win.style.width;
+        win.dataset.prevHeight = win.style.height;
+
+        // Maximize to fill screen (minus taskbar)
+        win.style.top = '0px';
+        win.style.left = '0px';
+        win.style.width = '100vw';
+        win.style.height = 'calc(100vh - 40px)'; // 40px = taskbar
+        win.classList.add('maximized');
+    }
+}

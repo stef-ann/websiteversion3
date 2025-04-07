@@ -2,7 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif'); no-repeat center center fixed;
+    background: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif');
+    no-repeat: center center fixed;
     background-size: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
@@ -12,6 +13,8 @@ body {
 /* Desktop Icon */
 .desktop-icon {
     width: 80px;
+    -webskit-text-stroke-width: 3px;
+    -webkit-text-stroke--color: #00000A;
     text-align: center;
     color: white;
     margin: 20px;
@@ -52,12 +55,7 @@ body {
     cursor: move;
     user-select: none;
 }
-.window-controls button {
-    background: #c0c0c0;
-    border: 1px solid #808080;
-    margin-left: 5px;
-    cursor: pointer;
-}
+
 .window-content {
     padding: 10px;
     background: white;
@@ -78,7 +76,7 @@ body {
     padding: 0 10px;
 }
 #taskbar button {
-    background: #c0c0c0;
+    background: #54ff00;
     border: 1px solid #808080;
     margin-right: 5px;
     padding: 5px 10px;
@@ -121,6 +119,46 @@ body {
     cursor: pointer;
     font-size: 14px;
 }
+.window-controls button {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #808080;
+    box-shadow: inset 1px 1px white, inset -1px -1px #404040;
+}
+
+/* Minimize Button */
+.btn-min {
+    background: #0059ff;
+    color: #ffffff;
+}
+
+/* Maximize Button */
+.btn-max {
+    background: rgba(0, 89, 255, 0.67);
+    color: #ffffff;
+}
+
+
+
+/* Close Button */
+.btn-cls {
+    background: #ff0000;
+    color: white;
+    border-color: #c00;
+}
+
+.btn-min:hover,
+.btn-max:hover {
+    filter: brightness(1.1);
+}
+
+.btn-cls:hover {
+    background: red;
+}
 
 .address-bar {
     flex: 1;
@@ -161,6 +199,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 20px;
 }
 
 .file-item {
@@ -174,3 +213,61 @@ body {
     width: 32px;
     height: 32px;
 }
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* n = 3 */
+    gap: 10px;
+    margin-top: 10px;
+    margin: 10px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #c0c0c0;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+//* (original CSS remains unchanged above) */
+
+/* Lightbox Styling */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 0 10px #fff;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.window.maximized {
+    resize: none;
+    pointer-events: auto;
+}
+.window.maximized .window-titlebar {
+    cursor: default;
+}
+
